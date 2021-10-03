@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  discord-musicbot:
+    build: ./src
+    ports:
+      - 3000:3000
+    image: discord-musicbot:latest
+    container_name: musicbot
+    restart: unless-stopped
+    networks:
+      - lavalink-net
+    depends_on:
+      - lavalink
+    volumes:
+      - $PWD/data/botconfig.js:/usr/src/app/botconfig.js
+
+  lavalink:
+    # image: dougley/lavalink:latest
+    # image: nebulatgs/lavalink-arm:latest
+    build: ./src-lavalink
+    container_name: lavalink
+    hostname: lavalink
+    restart: unless-stopped
+    networks:
+      - lavalink-net
+    volumes:
+      - $PWD/data/application.yml:/opt/Lavalink/application.yml
+
+networks:
+  lavalink-net:
