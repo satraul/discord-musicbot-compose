@@ -13,7 +13,7 @@ services:
     depends_on:
       - lavalink
     volumes:
-      - $PWD/data/botconfig.js:/usr/src/app/botconfig.js
+      - ./data/botconfig.js:/usr/src/app/botconfig.js
 
   lavalink:
     # image: dougley/lavalink:latest
@@ -25,7 +25,7 @@ services:
     networks:
       - lavalink-net
     volumes:
-      - $PWD/data/application.yml:/opt/Lavalink/application.yml
+      - ./data/application.yml:/opt/Lavalink/application.yml
 
 networks:
   lavalink-net:
