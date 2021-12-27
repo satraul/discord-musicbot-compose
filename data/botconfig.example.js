@@ -26,6 +26,11 @@ module.exports = {
     secure: false, // Set this to true if you're self-hosting lavalink on replit.
   },
 
+  Presence: {
+    status: "online", // You can show online, idle, and dnd
+    name: "Music", // The message shown
+    type: "LISTENING", // PLAYING, WATCHING, LISTENING, STREAMING
+  },
 
   //Please go to https://developer.spotify.com/dashboard/
   Spotify: {
